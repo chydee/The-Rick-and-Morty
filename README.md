@@ -40,24 +40,25 @@ Junior Android Developer Role at PRINTFUL.
 <img src="screens/details.png" alt="Screen 3" width="250">
 </p>
 
-## Installation
+## Getting Started
+   This project uses AndroidX dependencies.
+   This means you would need to have Android Studio 3.2.1 or later and AndroidX installed. With this, you can get started with the following steps:
+   Follow these steps if you want to get a local copy of the project.
 
-This project uses AndroidX dependencies.
-This means you would need to have Android Studio 3.2.1 or later and AndroidX installed. With this, you can get started with the following steps:
-Follow these steps if you want to get a local copy of the project.
+   Prerequisites
+   Android Studio IDE 3.0+
+   Android SDK v28
+   Android Build Tools v28.0.3
+   Gradle 4.10.1
+   1. Clone or fork the repository (Master Branch) by running the command below
+   on your git terminal
 
-Prerequisites
-Android Studio IDE 3.0+
-Android SDK v28
-Android Build Tools v28.0.3
-Gradle 4.10.1
-    1. Clone or fork the repository (Master Branch) by running the command below on your git terminal
-        `git clone https://github.com/chydee/The-Rick-and-Morty.git`
-    2. Import the project in AndroidStudio, and add API Key
-    In Android Studio, go to File -> New -> Import project
-    Follow the dialog for set up instructions
+   git clone https://github.com/chydee/The-Rick-and-Morty.git
+   2. Import the project in AndroidStudio, and add API Key
+   In Android Studio, go to File -> New -> Import project
+   Follow the dialog for set up instructions
 
-To run this application, please use an Android device or emulator (OS 5.0 or newer).
+   To run this application, please use an Android device or emulator (OS 5.0 or newer).
 
 
 ## More
