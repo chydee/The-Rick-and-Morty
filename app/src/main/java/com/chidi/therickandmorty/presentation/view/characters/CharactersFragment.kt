@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chidi.therickandmorty.databinding.CharactersFragmentBinding
 import com.chidi.therickandmorty.presentation.adapter.CharactersAdapter
@@ -38,7 +39,8 @@ class CharactersFragment : Fragment(), CharactersAdapter.OnCharacterClickListene
     }
 
     override fun onItemClick(characterId: Int) {
-        //When A Character is clicked do something
+        //When A Character is clicked navigate to the CharacterDetailsFragment
+        findNavController().navigate(CharactersFragmentDirections.actionCharactersFragmentToCharacterDetailsFragment(characterId))
     }
 
     /**
@@ -58,6 +60,7 @@ class CharactersFragment : Fragment(), CharactersAdapter.OnCharacterClickListene
         viewModel.characters.observe(viewLifecycleOwner, {
             when (it.status) {
                 Resource.Status.SUCCESS -> {
+                    hideProgressIndicator()
                     if (!it.data.isNullOrEmpty()) adapter.submitList(it.data)
                 }
                 Resource.Status.ERROR -> {

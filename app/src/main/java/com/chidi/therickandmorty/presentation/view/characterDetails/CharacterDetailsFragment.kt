@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.navArgs
 import com.chidi.therickandmorty.R
 import com.chidi.therickandmorty.databinding.CharacterDetailsFragmentBinding
 import com.chidi.therickandmorty.domain.Character
@@ -16,13 +18,16 @@ import com.chidi.therickandmorty.presentation.utils.autoCleared
 import com.chidi.therickandmorty.presentation.utils.binding.bindSrcUrl
 import com.chidi.therickandmorty.presentation.utils.extensions.gone
 import com.chidi.therickandmorty.presentation.utils.extensions.show
+import com.chidi.therickandmorty.presentation.view.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class CharacterDetailsFragment : Fragment() {
 
-    private val viewModel: CharacterDetailsViewModel by viewModels()
+    private val viewModel: CharacterDetailsViewModel by activityViewModels()
     private var binding: CharacterDetailsFragmentBinding by autoCleared()
+
+    private val args: CharacterDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +40,8 @@ class CharacterDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
+        getCharacterDetail(args.characterID)
+        setupObserver()
     }
 
     private fun getCharacterDetail(id: Int) {
@@ -60,8 +67,9 @@ class CharacterDetailsFragment : Fragment() {
     }
 
     private fun setupCharacterDetails(character: Character) {
+        (activity as MainActivity).findViewById<Toolbar>(R.id.toolbar).title = character.name
         binding.apply {
-            characterImage.bindSrcUrl(character.url, false, AppCompatResources.getDrawable(requireActivity(), R.drawable.ricky))
+            characterImage.bindSrcUrl(character.image, false, AppCompatResources.getDrawable(requireActivity(), R.drawable.ricky))
             characterSpeciesText.text = character.species
             characterStatusText.text = character.status
             characterTypeText.text = character.type

@@ -10,52 +10,79 @@
             type="com.chidi.therickandmorty.domain.Character" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:strokeColor="@color/variant"
+        app:strokeWidth="1dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/characterImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="16dp"
-            app:circleCrop="@{true}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:placeholder="@{@drawable/ricky}"
-            app:srcUrl="@{character.url}"
-            tools:src="@mipmap/ic_launcher" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/characterName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@{character.name}"
-            android:textColor="@color/primaryTextColor"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/characterImage"
-            app:layout_constraintTop_toTopOf="@+id/characterImage"
-            tools:text="Character's Name" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/characterImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="16dp"
+                app:circleCrop="@{true}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:placeholder="@{@drawable/ricky}"
+                app:srcUrl="@{character.image}"
+                tools:src="@mipmap/ic_launcher" />
 
-        <TextView
-            android:id="@+id/characterType"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins"
-            android:text="@{character.type}"
-            android:textSize="16sp"
-            android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="@+id/characterName"
-            app:layout_constraintStart_toStartOf="@+id/characterName"
-            app:layout_constraintTop_toBottomOf="@+id/characterName"
-            tools:text="Character type" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/characterName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@{character.name}"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/characterImage"
+                app:layout_constraintTop_toTopOf="@+id/characterImage"
+                tools:text="Character's Name" />
+
+            <TextView
+                android:id="@+id/characterStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="@{character.status}"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="@+id/characterName"
+                app:layout_constraintStart_toStartOf="@+id/characterName"
+                app:layout_constraintTop_toBottomOf="@+id/characterName"
+                tools:text="Character type" />
+
+            <TextView
+                android:id="@+id/characterSpecies"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins"
+                android:text="@{character.species}"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="@+id/characterImage"
+                app:layout_constraintEnd_toEndOf="@+id/characterName"
+                app:layout_constraintStart_toStartOf="@+id/characterName"
+                app:layout_constraintTop_toBottomOf="@+id/characterStatus"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="Character type" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 </layout>
