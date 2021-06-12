@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">The Rick and Morty</string>
+    <string name="app_name">Rick and Morty Universe</string>
     <string name="app_title">The Rick and Morty Universe</string>
     <string name="launcher_quote">“ I’m a scientist; because I invent, transform, create, and destroy for a living, and when I don’t like something about the world, I change it. ”\n— Pickle Rick</string>
     <string name="character_s_image_desc">Character\'s Image</string>
