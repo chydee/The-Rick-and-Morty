@@ -11,6 +11,7 @@ import com.chidi.therickandmorty.databinding.CharactersFragmentBinding
 import com.chidi.therickandmorty.presentation.adapter.CharactersAdapter
 import com.chidi.therickandmorty.presentation.utils.Resource
 import com.chidi.therickandmorty.presentation.utils.autoCleared
+import com.chidi.therickandmorty.presentation.utils.extensions.gone
 import com.chidi.therickandmorty.presentation.utils.extensions.show
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,8 +20,6 @@ class CharactersFragment : Fragment(), CharactersAdapter.OnCharacterClickListene
 
     private var binding: CharactersFragmentBinding by autoCleared()
     private val viewModel: CharactersViewModel by viewModels()
-
-
     private lateinit var adapter: CharactersAdapter
 
     override fun onCreateView(
@@ -65,7 +64,7 @@ class CharactersFragment : Fragment(), CharactersAdapter.OnCharacterClickListene
                     it.message?.let { message -> showEmptyState(message) }
                 }
                 Resource.Status.LOADING -> {
-
+                    showProgressIndicator()
                 }
             }
         })
@@ -76,10 +75,19 @@ class CharactersFragment : Fragment(), CharactersAdapter.OnCharacterClickListene
      * from the Resource as Text
      */
     private fun showEmptyState(message: String) {
+        hideProgressIndicator()
         binding.emptyStateTextView.apply {
             show()
             text = message
         }
+    }
+
+    private fun showProgressIndicator() {
+        binding.progressIndicator.progressGroup.show()
+    }
+
+    private fun hideProgressIndicator() {
+        binding.progressIndicator.progressGroup.gone()
     }
 
 }

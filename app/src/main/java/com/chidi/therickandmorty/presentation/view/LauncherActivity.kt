@@ -9,7 +9,6 @@ import android.os.Looper
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import com.chidi.therickandmorty.MainActivity
 import com.chidi.therickandmorty.R
 import com.chidi.therickandmorty.databinding.ActivityLauncherBinding
 import com.chidi.therickandmorty.presentation.utils.Constants.SPLASH_TIMEOUT
@@ -33,7 +32,7 @@ class LauncherActivity : AppCompatActivity() {
         }, SPLASH_TIMEOUT)
 
         val anim: Animation = AnimationUtils.loadAnimation(this, R.anim.splash_animation)
-        binding.appNameLogoTextView.startAnimation(anim)
+        binding.appLogo.startAnimation(anim)
         binding.appQuoteTextView.startAnimation(anim)
     }
 }

@@ -20,10 +20,13 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="16dp"
-            android:src="@mipmap/ic_launcher"
+            app:circleCrop="@{true}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:placeholder="@{@drawable/ricky}"
+            app:srcUrl="@{character.url}"
+            tools:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/characterName"

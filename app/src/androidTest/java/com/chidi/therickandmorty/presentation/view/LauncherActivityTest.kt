@@ -27,26 +27,20 @@ class LauncherActivityTest {
     }
 
     @Test
-    fun check_if_the_app_title_is_in_view() {
-        onView(ViewMatchers.withId(R.id.appNameLogoTextView))
+    fun test_isAppLogoInView() {
+        onView(ViewMatchers.withId(R.id.appLogo))
             .check(matches(isDisplayed()))
     }
 
     @Test
-    fun check_if_the_launchScreen_quote_is_displayed() {
+    fun test_isLaunchScreenQuoteTextViewInView() {
         onView(ViewMatchers.withId(R.id.appQuoteTextView))
             .check(matches(isDisplayed()))
     }
 
     @Test
-    fun test_isTheLaunchScreenTitleTextDisplayed() {
-        onView(ViewMatchers.withId(R.id.appNameLogoTextView))
-            .check(matches(withText(R.string.app_title)))
-    }
-
-    @Test
     fun test_isTheLaunchScreenQuoteTextDisplayed() {
-        onView(ViewMatchers.withId(R.id.appNameLogoTextView))
+        onView(ViewMatchers.withId(R.id.appQuoteTextView))
             .check(matches(withText(R.string.launcher_quote)))
     }
 

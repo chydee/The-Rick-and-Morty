@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <RelativeLayout
+        android:id="@+id/launcherActivity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/launcherActivity"
         android:fitsSystemWindows="true"
         tools:context=".presentation.view.LauncherActivity">
 
-        <TextView
-            android:id="@+id/appNameLogoTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/appLogo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_centerInParent="true"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/app_title"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:contentDescription="@string/app_logo_desc"
+            app:srcCompat="@drawable/rick_sanchez" />
 
         <TextView
             android:id="@+id/appQuoteTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/appNameLogoTextView"
+            android:layout_below="@id/appLogo"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="24dp"
             android:layout_marginTop="20dp"
