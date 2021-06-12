@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.view.characters.CharactersFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/charactersRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            tools:listitem="@layout/item_character" />
+
+
+        <TextView
+            android:id="@+id/emptyStateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:visibility="gone"
+            tools:text="Error Getting Characters" />
+
+    </FrameLayout>
+</layout>

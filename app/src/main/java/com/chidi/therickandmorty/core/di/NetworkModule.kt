@@ -1,6 +1,8 @@
 package com.chidi.therickandmorty.core.di
 
 import com.chidi.therickandmorty.BuildConfig
+import com.chidi.therickandmorty.data.remote.ApiService
+import com.chidi.therickandmorty.data.remote.RemoteDataSource
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -45,4 +47,11 @@ object NetworkModule {
         .baseUrl(BuildConfig.BASE_URL)
         .client(okHttpClient)
         .build()
+
+    @Singleton
+    @Provides
+    fun provideRemoteDataSource(service: ApiService) = RemoteDataSource(service)
+
+    @Provides
+    fun provideCharacterService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
 }
