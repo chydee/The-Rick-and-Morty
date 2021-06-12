@@ -27,7 +27,7 @@
     Junior Android Developer Role at PRINTFUL.
 
 ## "Production level" implementations
-    - Linting style with [KtLint](https://ktlint.github.io/)
+    - Linting style with [Ktlint](https://github.com/JLLeitschuh/ktlint-gradle)
     - Pre push checks the code with `perform code analysis`, `reformat code` and `optimize imports`
     - Dependency Injection with [Dagger-Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
     - Testing with [Espresso](https://developer.android.com/training/testing/espresso) and [JUnit4](https://developer.android.com/training/testing/junit-rules)
