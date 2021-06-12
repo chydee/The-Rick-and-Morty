@@ -3,134 +3,142 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
         tools:context=".presentation.view.characterDetails.CharacterDetailsFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/characterDetails"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/characterImage"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_marginTop="24dp"
-                android:contentDescription="@string/character_s_image_desc"
-                android:elevation="14dp"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/characterDetails"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/characterImage"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="24dp"
+                    android:contentDescription="@string/character_s_image_desc"
+                    android:elevation="14dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/characterSpeciesLabel"
+                    style="@style/DetailsLabelText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/label_species"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/characterImage" />
+
+                <TextView
+                    android:id="@+id/characterStatusLabel"
+                    style="@style/DetailsLabelText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/label_status"
+                    app:layout_constraintStart_toStartOf="@+id/characterSpeciesLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/characterSpeciesLabel" />
+
+                <TextView
+                    android:id="@+id/characterTypeLabel"
+                    style="@style/DetailsLabelText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/label_type"
+                    app:layout_constraintStart_toStartOf="@+id/characterStatusLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/characterStatusLabel" />
+
+                <TextView
+                    android:id="@+id/characterGenderLabel"
+                    style="@style/DetailsLabelText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/label_gender"
+                    app:layout_constraintStart_toStartOf="@+id/characterTypeLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/characterTypeLabel" />
+
+                <TextView
+                    android:id="@+id/characterSpeciesText"
+                    style="@style/DetailsText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/characterSpeciesLabel"
+                    tools:text="Character's Species" />
+
+                <TextView
+                    android:id="@+id/characterStatusText"
+                    style="@style/DetailsText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/characterStatusLabel"
+                    tools:text="Character's Status" />
+
+                <TextView
+                    android:id="@+id/characterTypeText"
+                    style="@style/DetailsText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/characterTypeLabel"
+                    tools:text="Character's Type" />
+
+                <TextView
+                    android:id="@+id/characterGenderText"
+                    style="@style/DetailsText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/characterGenderLabel"
+                    tools:text="Character's Gender" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.30" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <include
+                android:id="@+id/progressIndicator"
+                layout="@layout/progress_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/characterSpeciesLabel"
-                style="@style/DetailsLabelText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/label_species"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/characterImage" />
-
-            <TextView
-                android:id="@+id/characterStatusLabel"
-                style="@style/DetailsLabelText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/label_status"
-                app:layout_constraintStart_toStartOf="@+id/characterSpeciesLabel"
-                app:layout_constraintTop_toBottomOf="@+id/characterSpeciesLabel" />
-
-            <TextView
-                android:id="@+id/characterTypeLabel"
-                style="@style/DetailsLabelText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/label_type"
-                app:layout_constraintStart_toStartOf="@+id/characterStatusLabel"
-                app:layout_constraintTop_toBottomOf="@+id/characterStatusLabel" />
-
-            <TextView
-                android:id="@+id/characterGenderLabel"
-                style="@style/DetailsLabelText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/label_gender"
-                app:layout_constraintStart_toStartOf="@+id/characterTypeLabel"
-                app:layout_constraintTop_toBottomOf="@+id/characterTypeLabel" />
-
-            <TextView
-                android:id="@+id/characterSpeciesText"
-                style="@style/DetailsText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/characterSpeciesLabel"
-                tools:text="Character's Species" />
-
-            <TextView
-                android:id="@+id/characterStatusText"
-                style="@style/DetailsText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/characterStatusLabel"
-                tools:text="Character's Status" />
-
-            <TextView
-                android:id="@+id/characterTypeText"
-                style="@style/DetailsText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/characterTypeLabel"
-                tools:text="Character's Type" />
-
-            <TextView
-                android:id="@+id/characterGenderText"
-                style="@style/DetailsText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toTopOf="@+id/characterGenderLabel"
-                tools:text="Character's Gender" />
-
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.30" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <include
-            android:id="@+id/progressIndicator"
-            layout="@layout/progress_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
