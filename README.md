@@ -51,15 +51,13 @@ Android Studio IDE 3.0+
 Android SDK v28
 Android Build Tools v28.0.3
 Gradle 4.10.1
-1. Clone or fork the repository (Master Branch) by running the command below
-on your git terminal
+    1. Clone or fork the repository (Master Branch) by running the command below on your git terminal
+        `git clone https://github.com/chydee/The-Rick-and-Morty.git`
+    2. Import the project in AndroidStudio, and add API Key
+    In Android Studio, go to File -> New -> Import project
+    Follow the dialog for set up instructions
 
-git clone https://github.com/chydee/The-Rick-and-Morty.git
-2. Import the project in AndroidStudio, and add API Key
-In Android Studio, go to File -> New -> Import project
-Follow the dialog for set up instructions
-
-To test this application, please use an Android device or emulator (OS 5.0 or newer).
+To run this application, please use an Android device or emulator (OS 5.0 or newer).
 
 
 ## More
