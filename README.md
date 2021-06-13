@@ -10,7 +10,7 @@ it also shows some of the best practices in Android Development. Including:
 * Room
 * Navigation
 
-[Download APK](https://github.com/chydee/The-Rick-and-Morty/releases/download/v1.0/app-debug.apk)
+[Download APK](https://github.com/chydee/The-Rick-and-Morty/releases/download/v1.0/universe.apk)
 
 Minimum Api Level : 21 compileSdkVersion : 30
 
