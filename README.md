@@ -43,9 +43,9 @@ Junior Android Developer Role at PRINTFUL.
 ## Screenshots
 
 <p>
-<img src="screens/launcher.png" alt="Screen 1" width="33%">
-<img src="screens/home.png" alt="Screen 2" width="33%">
-<img src="screens/details.png" alt="Screen 3" width="33%">
+<img src="screens/launcher.png" alt="Screen 1" width="250">
+<img src="screens/home.png" alt="Screen 2" width="250">
+<img src="screens/details.png" alt="Screen 3" width="250">
 </p>
 
  ## Installation
