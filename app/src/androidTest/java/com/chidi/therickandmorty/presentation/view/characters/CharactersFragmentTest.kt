@@ -25,7 +25,7 @@ class CharactersFragmentTest {
 
     private lateinit var characters: List<Character>
 
-    val LIST_ITEM_IN_TEST = 1
+    private val LIST_ITEM_IN_TEST = 1
 
     @Before
     fun setUp() {
@@ -35,13 +35,18 @@ class CharactersFragmentTest {
     @Test
     fun test_isFragmentInDisplay() {
         // Check if Fragment is visible
-        Espresso.onView(ViewMatchers.withId(R.id.charactersListFragment))
+        Espresso.onView(withId(R.id.charactersListFragment))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 
     fun test_isRecyclerViewInDisplayed() {
-        Espresso.onView(ViewMatchers.withId(R.id.charactersRecyclerView))
+        Espresso.onView(withId(R.id.charactersRecyclerView))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+    }
+
+    fun text_isEmptyStateTextViewNotInView() {
+        Espresso.onView(withId(R.id.emptyStateTextView))
+            .check(ViewAssertions.doesNotExist())
     }
 
     @Test
@@ -55,7 +60,7 @@ class CharactersFragmentTest {
     }
 
     fun test_isEmptyStateViewInvisibleByDefault() {
-        Espresso.onView(ViewMatchers.withId(R.id.emptyStateTextView))
+        Espresso.onView(withId(R.id.emptyStateTextView))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 
