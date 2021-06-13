@@ -7,6 +7,7 @@ import com.chidi.therickandmorty.utils.TestUtil
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.CoreMatchers
+import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert
 import org.junit.Before
 import org.junit.Rule
@@ -47,19 +48,17 @@ class CharacterDaoTest : LocalDatabase() {
         val characters = listOf(character)
         characterDao.insert(characters)
 
-        val loaded = characterDao.getCharacter(characterRE.id)
+        val loaded = characterDao.getCharacter(character.id)
 
-        MatcherAssert.assertThat(loaded.id, `is`(article.id))
-        MatcherAssert.assertThat(loaded.url, `is`(article.url))
-        MatcherAssert.assertThat(loaded.author, `is`(article.author))
-        MatcherAssert.assertThat(loaded.title, `is`(article.title))
-        MatcherAssert.assertThat(loaded.description, `is`(article.description))
-        MatcherAssert.assertThat(loaded.imgUrl, `is`(article.imgUrl))
-        MatcherAssert.assertThat(loaded.content, `is`(article.content))
-        MatcherAssert.assertThat(loaded.source.name, `is`(article.source.name))
-        MatcherAssert.assertThat(loaded.category, `is`(article.category))
-        MatcherAssert.assertThat(loaded.language, `is`(article.language))
-        MatcherAssert.assertThat(loaded.date, `is`(article.date))
+        MatcherAssert.assertThat(loaded.value?.id, `is`(character.id))
+        MatcherAssert.assertThat(loaded.value?.url, `is`(character.url))
+        MatcherAssert.assertThat(loaded.value?.name, `is`(character.name))
+        MatcherAssert.assertThat(loaded.value?.gender, `is`(character.gender))
+        MatcherAssert.assertThat(loaded.value?.status, `is`(character.status))
+        MatcherAssert.assertThat(loaded.value?.species, `is`(character.species))
+        MatcherAssert.assertThat(loaded.value?.image, `is`(character.image))
+        MatcherAssert.assertThat(loaded.value?.created, `is`(character.created))
+        MatcherAssert.assertThat(loaded.value?.url, `is`(character.url))
     }
 
 }

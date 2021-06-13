@@ -40,6 +40,16 @@ Junior Android Developer Role at PRINTFUL.
 <img src="screens/details.png" alt="Screen 3" width="250">
 </p>
 
+## Testing
+###  Device Tests:
+  - <b>App Navigation Test</b> - Navigation between screens is tested using Espresso UI framework and ActivityScenario for lifecycle state. `Hilt` provides test version of Repository and automatically generates a new set of components for each test. This is done with use of a `CustomTestRunner` that uses an Application configured with Hilt. In order to make Espresso aware of network operations `UriIdlingResource` is registered for UI test.
+  - <b>Database Testing</b> - The project creates an in memory database for each database test but still runs them on the device.
+  - <b>Activity Testing</b> - Tests the activity's component on the device.
+### Local Unit Tests:
+  - <b>Webservice Tests</b> - The project uses MockWebServer project to test REST api interactions.
+  - <b>ViewModel Tests</b> - ViewModels are tested using local unit tests with mock Repository implementations.
+  - <b>Repository Tests</b> - Repository is tested using local unit tests with mock versions of Service and Database.
+
 ## Getting Started
 This project uses AndroidX dependencies.
 This means you would need to have Android Studio 3.2.1 or later and AndroidX installed. With this, you can get started with the following steps:
