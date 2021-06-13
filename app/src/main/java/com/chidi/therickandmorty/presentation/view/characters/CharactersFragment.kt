@@ -12,8 +12,8 @@ import com.chidi.therickandmorty.databinding.CharactersFragmentBinding
 import com.chidi.therickandmorty.presentation.adapter.CharactersAdapter
 import com.chidi.therickandmorty.presentation.utils.Resource
 import com.chidi.therickandmorty.presentation.utils.autoCleared
-import com.chidi.therickandmorty.presentation.utils.extensions.gone
 import com.chidi.therickandmorty.presentation.utils.extensions.show
+import com.chidi.therickandmorty.presentation.utils.showProgressDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -61,7 +61,7 @@ class CharactersFragment : Fragment(), CharactersAdapter.OnCharacterClickListene
             when (it.status) {
                 Resource.Status.SUCCESS -> {
                     hideProgressIndicator()
-                    if (!it.data.isNullOrEmpty()) adapter.submitList(it.data)
+                    if (!it.data.isNullOrEmpty()) adapter.submitList(it.data) else showEmptyState("No Characters available")
                 }
                 Resource.Status.ERROR -> {
                     it.message?.let { message -> showEmptyState(message) }
@@ -86,11 +86,11 @@ class CharactersFragment : Fragment(), CharactersAdapter.OnCharacterClickListene
     }
 
     private fun showProgressIndicator() {
-        binding.progressIndicator.progressGroup.show()
+        showProgressDialog().show()
     }
 
     private fun hideProgressIndicator() {
-        binding.progressIndicator.progressGroup.gone()
+        showProgressDialog().dismiss()
     }
 
 }

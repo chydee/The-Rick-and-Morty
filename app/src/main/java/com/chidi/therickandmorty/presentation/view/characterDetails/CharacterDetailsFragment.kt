@@ -18,6 +18,7 @@ import com.chidi.therickandmorty.presentation.utils.autoCleared
 import com.chidi.therickandmorty.presentation.utils.binding.bindSrcUrl
 import com.chidi.therickandmorty.presentation.utils.extensions.gone
 import com.chidi.therickandmorty.presentation.utils.extensions.show
+import com.chidi.therickandmorty.presentation.utils.showProgressDialog
 import com.chidi.therickandmorty.presentation.view.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -78,12 +79,12 @@ class CharacterDetailsFragment : Fragment() {
     }
 
     private fun showProgressIndicator() {
-        binding.progressIndicator.progressGroup.show()
+        showProgressDialog().show()
         binding.characterDetails.gone()
     }
 
     private fun hideProgressIndicator() {
-        binding.progressIndicator.progressGroup.gone()
+        showProgressDialog().dismiss()
         binding.characterDetails.show()
     }
 

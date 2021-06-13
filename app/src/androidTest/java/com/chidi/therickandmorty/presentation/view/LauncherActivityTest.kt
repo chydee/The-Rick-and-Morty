@@ -19,7 +19,6 @@ class LauncherActivityTest {
     @get:Rule
     var activityRule: ActivityScenarioRule<LauncherActivity> = ActivityScenarioRule(LauncherActivity::class.java)
 
-
     @Test
     fun checkIfActivityIsInDisplayed() {
         onView(ViewMatchers.withId(R.id.launcherActivity))

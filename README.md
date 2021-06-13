@@ -16,6 +16,14 @@ Minimum Api Level : 21 compileSdkVersion : 30
 
 Build System : [Gradle](https://gradle.org/)
 
+ ## Table of Contents
+
+-   [Motivation](#motivation)
+-   ["Production level" implementations](#implementations)
+-   [Screenshots](#screenshots)
+-   [Installation](#installation)
+-   [Testing](#testing)
+
 ## Motivation
 
 “I know that new situations can be intimidating. You’re lookin’ around and it’s all scary and different, but y’know, meeting them head-on, c
@@ -35,40 +43,36 @@ Junior Android Developer Role at PRINTFUL.
 ## Screenshots
 
 <p>
-<img src="screens/launcher.png" alt="Screen 1" width="250">
-<img src="screens/home.png" alt="Screen 2" width="250">
-<img src="screens/details.png" alt="Screen 3" width="250">
+<img src="screens/launcher.png" alt="Screen 1" width="33%">
+<img src="screens/home.png" alt="Screen 2" width="33%">
+<img src="screens/details.png" alt="Screen 3" width="33%">
 </p>
+
+ ## Installation
+    Follow these steps if you want to get a local copy of the project.
+
+    Prerequisites
+    Android Studio IDE 3.0+
+    Android SDK v28
+    Android Build Tools v28.0.3
+    Gradle 4.10.1
+    1. Clone or fork the repository (Master Branch) by running the command below
+    on your git terminal
+
+    git clone https://github.com/chydee/The-Rick-and-Morty.git
+    2. Import the project in AndroidStudio
+    In Android Studio, go to File -> New -> Import project
+    Follow the dialog for set up instructions
+
+    To run this application, please use an Android device or emulator (OS 5.0 or newer).
 
 ## Testing
 ###  Device Tests:
   - <b>App Navigation Test</b> - Navigation between screens is tested using Espresso UI framework and ActivityScenario for lifecycle state. `Hilt` provides test version of Repository and automatically generates a new set of components for each test. This is done with use of a `CustomTestRunner` that uses an Application configured with Hilt. In order to make Espresso aware of network operations `UriIdlingResource` is registered for UI test.
   - <b>Database Testing</b> - The project creates an in memory database for each database test but still runs them on the device.
-  - <b>Activity Testing</b> - Tests the activity's component on the device.
+  - <b>Activity In Isolation</b> - Tests the activity's component on the device.
+  - <b>Fragment In Isolation</b> - Tests the fragment's component on the device.
 ### Local Unit Tests:
   - <b>Webservice Tests</b> - The project uses MockWebServer project to test REST api interactions.
   - <b>ViewModel Tests</b> - ViewModels are tested using local unit tests with mock Repository implementations.
   - <b>Repository Tests</b> - Repository is tested using local unit tests with mock versions of Service and Database.
-
-## Getting Started
-This project uses AndroidX dependencies.
-This means you would need to have Android Studio 3.2.1 or later and AndroidX installed. With this, you can get started with the following steps:
-Follow these steps if you want to get a local copy of the project.
-
-Prerequisites:
-  * Android Studio IDE 3.0+
-  * Android SDK v28
-  * Android Build Tools v28.0.3
-  * Gradle 4.10.1
-- Clone or fork the repository (Master Branch) by running the command below on your git terminal
-    `git clone https://github.com/chydee/The-Rick-and-Morty.git`
-- Import the project in AndroidStudio, and add API Key
-- In Android Studio, go to File -> New -> Import project
-- Follow the dialog for set up instructions
-
-To run this application, please use an Android device or emulator (OS 5.0 or newer).
-
-
-## More
-* [Guide to app architecture](https://developer.android.com/jetpack/guide)
-* [Android architecture samples](https://github.com/android/architecture-samples)

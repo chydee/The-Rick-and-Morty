@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <FrameLayout
+        android:id="@+id/charactersListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".presentation.view.characters.CharactersFragment">
@@ -27,14 +28,6 @@
             android:textStyle="normal"
             android:visibility="gone"
             tools:text="Error Getting Characters" />
-
-        <include
-            android:id="@+id/progressIndicator"
-            layout="@layout/progress_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone" />
 
     </FrameLayout>
 </layout>
