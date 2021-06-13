@@ -10,10 +10,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chidi.therickandmorty.databinding.CharactersFragmentBinding
 import com.chidi.therickandmorty.presentation.adapter.CharactersAdapter
+import com.chidi.therickandmorty.presentation.utils.LoadingDialog
 import com.chidi.therickandmorty.presentation.utils.Resource
 import com.chidi.therickandmorty.presentation.utils.autoCleared
 import com.chidi.therickandmorty.presentation.utils.extensions.show
-import com.chidi.therickandmorty.presentation.utils.showProgressDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,6 +22,8 @@ class CharactersFragment : Fragment(), CharactersAdapter.OnCharacterClickListene
     private var binding: CharactersFragmentBinding by autoCleared()
     private val viewModel: CharactersViewModel by viewModels()
     private lateinit var adapter: CharactersAdapter
+
+    private lateinit var loadingDialog: LoadingDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +36,7 @@ class CharactersFragment : Fragment(), CharactersAdapter.OnCharacterClickListene
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = viewLifecycleOwner
+        loadingDialog = LoadingDialog(requireActivity())
         setupRecyclerView()
         observeViewModel()
     }
@@ -60,14 +63,14 @@ class CharactersFragment : Fragment(), CharactersAdapter.OnCharacterClickListene
         viewModel.characters.observe(viewLifecycleOwner, {
             when (it.status) {
                 Resource.Status.SUCCESS -> {
-                    hideProgressIndicator()
+                    loadingDialog.dismissDialog()
                     if (!it.data.isNullOrEmpty()) adapter.submitList(it.data) else showEmptyState("No Characters available")
                 }
                 Resource.Status.ERROR -> {
                     it.message?.let { message -> showEmptyState(message) }
                 }
                 Resource.Status.LOADING -> {
-                    showProgressIndicator()
+                    loadingDialog.startLoadingDialog()
                 }
             }
         })
@@ -78,19 +81,11 @@ class CharactersFragment : Fragment(), CharactersAdapter.OnCharacterClickListene
      * from the Resource as Text
      */
     private fun showEmptyState(message: String) {
-        hideProgressIndicator()
+        loadingDialog.dismissDialog()
         binding.emptyStateTextView.apply {
             show()
             text = message
         }
-    }
-
-    private fun showProgressIndicator() {
-        showProgressDialog().show()
-    }
-
-    private fun hideProgressIndicator() {
-        showProgressDialog().dismiss()
     }
 
 }

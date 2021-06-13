@@ -13,12 +13,12 @@ import androidx.navigation.fragment.navArgs
 import com.chidi.therickandmorty.R
 import com.chidi.therickandmorty.databinding.CharacterDetailsFragmentBinding
 import com.chidi.therickandmorty.domain.Character
+import com.chidi.therickandmorty.presentation.utils.LoadingDialog
 import com.chidi.therickandmorty.presentation.utils.Resource
 import com.chidi.therickandmorty.presentation.utils.autoCleared
 import com.chidi.therickandmorty.presentation.utils.binding.bindSrcUrl
 import com.chidi.therickandmorty.presentation.utils.extensions.gone
 import com.chidi.therickandmorty.presentation.utils.extensions.show
-import com.chidi.therickandmorty.presentation.utils.showProgressDialog
 import com.chidi.therickandmorty.presentation.view.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,6 +29,8 @@ class CharacterDetailsFragment : Fragment() {
     private var binding: CharacterDetailsFragmentBinding by autoCleared()
 
     private val args: CharacterDetailsFragmentArgs by navArgs()
+
+    private lateinit var loadingDialog: LoadingDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +43,7 @@ class CharacterDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
+        loadingDialog = LoadingDialog(requireActivity())
         getCharacterDetail(args.characterID)
         setupObserver()
     }
@@ -79,12 +82,12 @@ class CharacterDetailsFragment : Fragment() {
     }
 
     private fun showProgressIndicator() {
-        showProgressDialog().show()
+        loadingDialog.startLoadingDialog()
         binding.characterDetails.gone()
     }
 
     private fun hideProgressIndicator() {
-        showProgressDialog().dismiss()
+        loadingDialog.dismissDialog()
         binding.characterDetails.show()
     }
 
