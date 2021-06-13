@@ -1,6 +1,6 @@
 # The Rick and Morty Universe
 
-A simple app that fetches data from [the Rick and Morty API](https://martinfowler.com/) and displays data in a list.
+A simple app that fetches data from [the Rick and Morty API](https://rickandmortyapi.com/) and displays data in a list.
 it also shows some of the best practices in Android Development. Including:
 * ViewModel
 * LiveData
