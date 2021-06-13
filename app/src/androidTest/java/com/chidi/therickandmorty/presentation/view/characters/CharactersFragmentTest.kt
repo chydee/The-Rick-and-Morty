@@ -39,7 +39,7 @@ class CharactersFragmentTest {
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 
-    fun test_isRecyclerViewInDisplayed() {
+    fun test_isEmptyStateViewInvisibleByDefault() {
         Espresso.onView(withId(R.id.charactersRecyclerView))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
@@ -57,11 +57,6 @@ class CharactersFragmentTest {
 
         // Confirm nav to DetailFragment and display title
         Espresso.onView(withId(R.id.characterDetailsScreen)).check(ViewAssertions.matches(isDisplayed()))
-    }
-
-    fun test_isEmptyStateViewInvisibleByDefault() {
-        Espresso.onView(withId(R.id.emptyStateTextView))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 
     @Test

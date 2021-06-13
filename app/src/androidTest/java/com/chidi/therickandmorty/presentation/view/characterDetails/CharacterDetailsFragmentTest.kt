@@ -1,12 +1,15 @@
 package com.chidi.therickandmorty.presentation.view.characterDetails
 
+import android.app.Application
 import androidx.fragment.app.testing.launchFragmentInContainer
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import com.chidi.therickandmorty.ImageViewHasDrawableMatcher.hasDrawable
 import com.chidi.therickandmorty.R
 import org.junit.Rule
 import org.junit.Test
@@ -18,6 +21,9 @@ class CharacterDetailsFragmentTest {
     @get:Rule
     val scenario = launchFragmentInContainer<CharacterDetailsFragment>()
 
+    val context = ApplicationProvider.getApplicationContext<Application>()
+
+
     @Test
     fun test_isFragmentInDisplay() {
         // Check if Fragment is visible
@@ -28,6 +34,19 @@ class CharacterDetailsFragmentTest {
     fun test_isCharacterImageViewDisplayed() {
         Espresso.onView(withId(R.id.characterImage))
             .check(ViewAssertions.matches(isDisplayed()))
+    }
+
+    @Test
+    fun test_defaultImageVisible() {
+        // VERIFY
+        Espresso.onView(withId(R.id.image)).check(
+            ViewAssertions.matches(
+                hasDrawable(
+                    context,
+                    R.drawable.ricky
+                )
+            )
+        )
     }
 
     fun test_isSpeciesLabelAndSpeciesInDisplay() {
